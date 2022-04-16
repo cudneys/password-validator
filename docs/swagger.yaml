@@ -1,0 +1,38 @@
+definitions:
+  models.Response:
+    properties:
+      error:
+        type: string
+      is_valid:
+        type: boolean
+    type: object
+info:
+  contact:
+    email: password-validator@cudneys.net
+    name: API Support
+    url: http://github.com/cudneys
+  description: This is a simple password validator
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Password Validator API
+  version: "1.0"
+paths:
+  /validate:
+    get:
+      description: Validates Passwords
+      parameters:
+      - description: Password to validate
+        in: query
+        name: password
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: Password Validator
+swagger: "2.0"
